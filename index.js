@@ -1,6 +1,3 @@
-
-
-
 module.exports = function(lines){
   var stuff = []
   var slines = lines.sort(function(a, b){
@@ -13,7 +10,7 @@ module.exports = function(lines){
       return a.length - b.length
     })
 
-    if(stuff[0].length + 1 + slines[slines.length - 1].length < 140){
+    if(stuff[0].length + 1 + slines[slines.length - 1].length <= 140){
       stuff[0] = stuff[0] + ' ' + slines.pop()
     } else {
       stuff.push(slines.pop())
