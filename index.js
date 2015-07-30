@@ -1,21 +1,20 @@
-module.exports = function(lines){
-  var stuff = []
+module.exports = function(lines, max){
+  var maximum = max !== undefined ? max : 140
   var slines = lines.sort(function(a, b){
-    return a.length - b.length
+    return b.length - a.length
   })
-  stuff.push(slines.shift())
 
-  while(slines.length){
-    stuff = stuff.sort(function(a, b){
-      return a.length - b.length
+  var go = true
+  while(go && slines.length > 1){
+    go = slines.some(function(line, i){
+      return slines.slice(i+1).some(function(other_line, j){
+        if(line.length + 1 + other_line.length <= maximum){
+          slines[i] = line + ' ' + other_line
+          slines.splice(j + 1, 1)
+          return true
+        }
+      })
     })
-
-    if(stuff[0].length + 1 + slines[slines.length - 1].length <= 140){
-      stuff[0] = stuff[0] + ' ' + slines.pop()
-    } else {
-      stuff.push(slines.pop())
-    }
   }
-
-  return stuff
+  return slines
 }
