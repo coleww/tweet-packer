@@ -10,10 +10,12 @@ given an array of strings, tweet-packer will return a new array with those strin
 
 ### API
 
-`tweetPacker(arrayOfLines, maxLength:optional)`
+`tweetPacker(arrayOfLines, maxLength:optional, separator:optional)`
 
-- arrayOfLines: smaller lines will be joined with a `" "`. you should probably be able to pass a custom separator, but you can't.
+- arrayOfLines: smaller lines will be optimally joined together with the separator such that they are all less than the maxLength
 - maxLength: defaults to 140, the max length that a line can be.
+- separator: defaults to `" "`, perhaps `"\n"` is more your style? Or instead, mayhaps you prefer `" : "`? Have at it!
+
 
 ### EXAMPLE
 

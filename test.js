@@ -11,6 +11,16 @@ tap.test('does the things',function(t){
   t.deepEqual(slicey([one_oh_nine, thirty, thirty_one], 141), [one_oh_nine + ' ' + thirty_one, thirty], "WoW")
 })
 
+tap.test('a separator can be specified', function(t){
+  t.plan(1)
+  var lines = [
+  "where am i",
+  "how did i get here",
+  "letting the days go by"
+  ]
+  t.deepEqual(slicey(lines, 140, "\n"), ["letting the days go by\nhow did i get here\nwhere am i"])
+})
+
 tap.test('a real life stress test', function(t){
   t.plan(1)
   var things = [ '123456789: ARES EMO THESE SUP TIES SHUTE USER THE USE EASE SEA ARE HUT RASE SEEM TIE',
