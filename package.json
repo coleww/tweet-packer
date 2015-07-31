@@ -1,16 +1,17 @@
 {
   "name": "tweet-packer",
   "description": "assembles strings into tweet sized packages",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "devDependencies": {
+    "standard": "^4.5.4",
     "tape": "*"
   },
   "dependencies": {
     "tape": "^4.0.1"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "standard && node test.js"
   },
   "repository": {
     "type": "git",
